@@ -1,12 +1,13 @@
 ---
 layout: project
 type: project
-image: img/jr-slim/jr-slim-square.jpg
+image: img/jr-slim/jr-slim.png
 title: "jr-slim"
 date: "Under development"
 published: true
 giturl: "https://github.com/jr-public/jr-slim"
 tryurl: false
+position: 1
 labels:
   - PHP
   - Slim Framework

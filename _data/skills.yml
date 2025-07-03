@@ -1,0 +1,22 @@
+- name: PHP
+  icon_class: devicon-php-plain
+- name: JavaScript
+  icon_class: devicon-javascript-plain
+- name: PostgreSQL
+  icon_class: devicon-postgresql-plain # Assuming devicon has a PostgreSQL icon
+- name: MySQL
+  icon_class: devicon-mysql-plain
+- name: Doctrine
+  icon_class: devicon-doctrine-plain # Assuming devicon has a Doctrine icon
+- name: GitHub Actions
+  icon_class: devicon-githubactions-plain # Assuming devicon has a GitHub Actions icon
+- name: Postman
+  icon_class: devicon-postman-plain # Assuming devicon has a Postman icon
+- name: Docker
+  icon_class: devicon-docker-plain
+- name: Git
+  icon_class: devicon-git-plain
+- name: Composer
+  icon_class: devicon-composer-plain # Assuming devicon has a Composer icon
+- name: CakePHP
+  icon_class: devicon-cakephp-plain # Assuming devicon has a CakePHP icon
