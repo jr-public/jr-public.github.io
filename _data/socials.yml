@@ -1,0 +1,9 @@
+- name: envelope
+  label: "Email me"
+  url: "mailto:jorgeruizkj@proton.me"
+- name: github
+  label: "Browse my repos"
+  url: "https://github.com/jr-public"
+- name: linkedin
+  label: "Visit my Linkedin"
+  url: "https://www.linkedin.com/in/jorge-matias-ruiz-guzman/"
