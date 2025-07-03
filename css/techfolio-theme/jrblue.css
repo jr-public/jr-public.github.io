@@ -6,12 +6,14 @@
 :root {
   --bs-font-sans-serif: "Bitter", sans-serif;
   --bs-link-color: var(--bs-blue);
+  --bs-link-hover-color: var(--bs-gray-500);
   --tf-pill-bg: var(--bs-gray);
   --tf-icon-fill: var(--bs-gray);
   --tf-icon-hover: var(--bs-gray-500);
-  --tf-page-bg-color: var(--bs-white);
-  --tf-footer-bg-color: var(--bs-gray-200);
-  --tf-projects-bg-color: var(--bs-gray-100);
+  --tf-page-bg-color: var(--bs-gray-200);
+  --tf-header-bg-color: #3B596A;
+  --tf-footer-bg-color: var(--bs-gray-300);
+  --tf-projects-bg-color: #3B596A;
 }
 
 /* Format social media icons */

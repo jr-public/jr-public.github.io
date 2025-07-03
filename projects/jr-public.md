@@ -12,6 +12,7 @@ labels:
   - Portfolio
   - Jekyll
   - Github Actions
+  - Bootstrap
   # - CI / CD
 summary: "The portfolio you're currently visiting"
 ---

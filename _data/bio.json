@@ -2,31 +2,17 @@
   "basics": {
     "smallname": "Jorge",
     "name": "Jorge Matías Ruiz Guzmán",
-    "label": "Senior PHP Developer",
-    "picture": "/img/jorge.png",
+    "label": "Senior PHP Backend Developer",
+    "picture": "https://github.com/jr-public.png",
     "email": "jorgeruizkj@proton.me",
     "phone": "",
     "website": "https://jr-public.github.io",
     "summary": "I've been delivering PHP APIs and webapps since 2018, designing, maintaining and evolving a wide range of client solutions.<br />I'm passionate about clean code and scalable architectures.<br />Currently looking for my next challenge.",
-    "location": { "address": "", "postalCode": "", "city": "Barcelona", "countryCode": "ES", "region": "" },
-    "profiles": [
-      { "network": "github", "username": "mmaluhia", "url": "https://github.com/jr-public" },
-      { "network": "linkedin", "username": "mollymaluhia", "url": "https://www.linkedin.com/in/jorge-matias-ruiz-guzman/" }
-    ]
+    "location": { "address": "", "postalCode": "", "city": "Barcelona", "countryCode": "ES", "region": "" }
   },
   "interests": [
     { "name": "Interactive media" },
     { "name": "3D Graphics" }
-  ],
-  "skills": [
-    {
-      "name": "Languages and Frameworks",
-      "keywords": [ "PHP", "PHP Slim", "Javascript" ]
-    },
-    {
-      "name": "Other part",
-      "keywords": [ "MacOS", "Ubuntu", "Git/GitHub", "g++", "TI LaunchPad" ]
-    }
   ],
   "education": [
     {
