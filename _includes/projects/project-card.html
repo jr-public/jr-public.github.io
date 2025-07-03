@@ -12,12 +12,8 @@
           {% endfor %}
         </p>
         <p class="card-text">{{ include.page.summary }}</p>
-        {% if include.page.giturl %}
-        <a href="{{ site.baseurl }}{{ include.page.giturl }}" class="btn text-white btn-secondary btn-outline-dark">Github Repo</a>
-        {% endif %}
-        {% if include.page.tryurl %}
+        <a href="{{ site.baseurl }}{{ include.page.giturl }}" class="btn text-white btn-success btn-outline-secondary">Github Repo</a>
         <a href="{{ site.baseurl }}{{ include.page.url }}" class="btn btn-outline-dark">Try it!</a>
-        {% endif %}
       </div>
     </div>
   </div>
