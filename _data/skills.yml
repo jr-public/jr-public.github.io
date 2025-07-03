@@ -18,5 +18,3 @@
   icon_class: devicon-git-plain
 - name: Composer
   icon_class: devicon-composer-plain # Assuming devicon has a Composer icon
-- name: CakePHP
-  icon_class: devicon-cakephp-plain # Assuming devicon has a CakePHP icon
