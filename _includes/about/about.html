@@ -13,8 +13,8 @@
 
           {% for skill in site.data.skills %}
           <div class="col">
-            <i class="{{ skill.icon_class }}" style="font-size: 1.5em; color: #3B596A;"></i><br />
-            <small class="mt-2 text-black">{{ skill.name }}</small>
+            <i class="{{ skill.icon_class }} skill-icon"></i><br />
+            <small>{{ skill.name }}</small>
           </div>
           {% endfor %}
 

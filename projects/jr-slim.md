@@ -10,10 +10,11 @@ tryurl: false
 position: 1
 labels:
   - PHP
-  - Slim Framework
-  - Docker
-  - PostgreSQL
   - REST API
+  - Slim Framework
+  - Doctrine
+  - PostgreSQL
+  - Docker
   - GitHub
 summary: "A modern PHP REST API featuring JWT authentication, role-based permissions, and comprehensive validation.<br />Demonstrates clean architecture with Docker containerization and extensive testing."
 ---

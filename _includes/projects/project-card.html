@@ -1,9 +1,9 @@
 <div class="card mb-3">
-  <div class="row g-0 justify-content-center">
-    <div class="col-sm-auto col-md-auto">
-      <img src="{{ site.baseurl }}/{{ include.page.image }}" height="225px" class="rounded-start bg-dark bg-gradient">
+  <div class="row g-0 justify-content-left">
+    <div class="col-auto">
+      <img src="{{ site.baseurl }}/{{ include.page.image }}" class="rounded-start bg-dark bg-gradient">
     </div>
-    <div class="col-sm-6 col-md-8">
+    <div class="col">
       <div class="card-body">
         <h5 class="card-title">{{ include.page.title }} <small class="text-muted float-end">{{ include.page.date }}</small></h5>
         <p>
@@ -12,8 +12,10 @@
           {% endfor %}
         </p>
         <p class="card-text">{{ include.page.summary }}</p>
-        <a href="{{ site.baseurl }}{{ include.page.giturl }}" class="btn text-white btn-success btn-outline-secondary">Github Repo</a>
-        <a href="{{ site.baseurl }}{{ include.page.url }}" class="btn btn-outline-dark">Try it!</a>
+        <a href="{{ site.baseurl }}{{ include.page.giturl }}" target="_blank" class="btn text-white btn-success btn-outline-secondary">Github Repo</a>
+        {% if include.page.tryurl != false %}
+        <a href="{{ site.baseurl }}{{ include.page.url }}" target="_blank" class="btn btn-outline-dark">Try it!</a>
+        {% endif %}
       </div>
     </div>
   </div>
