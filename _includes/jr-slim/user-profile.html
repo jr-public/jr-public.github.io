@@ -1,0 +1,8 @@
+<button 
+	class="btn btn-outline-secondary rounded user-profile" 
+	onclick="loginWithUser('{{ include.username }}', '{{ include.password }}')">
+	<img 
+		src="https://placehold.co/50x50/{{ include.color }}/000000?text={{ include.type }}" 
+		alt="{{ include.username }}">
+	<p class="mt-1 mb-0">{{ include.username }}</p>
+</button>

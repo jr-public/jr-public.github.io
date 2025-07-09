@@ -1,0 +1,80 @@
+<div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+	<div class="card card-custom h-100 p-3 bg-white">
+		<!-- LOGIN FORM -->
+		<div id="loginContainer" class="row">
+			<h5 class="mb-3 text-center text-primary">Login with these demo users</h5>
+			<div class="d-flex flex-wrap justify-content-around mb-4">
+				{% for user in site.data.api_users %}
+				{% if user.password %}
+				{% include jr-slim/user-profile.html 
+					username=user.username 
+					password=user.password 
+					type=user.type 
+					color=user.color 
+				%}
+				{% endif %}
+				{% endfor %}
+			</div>
+			<h5 class="mb-3 text-center text-primary">or use your credentials</h5>
+			<form id="loginForm" class="mb-4">
+				<div class="mb-3">
+					<label for="username" class="form-label visually-hidden">Username</label>
+					<input type="text" class="form-control rounded" id="username" placeholder="Username" required>
+				</div>
+				<div class="mb-3">
+					<label for="password" class="form-label visually-hidden">Password</label>
+					<input type="password" class="form-control rounded" id="password" placeholder="Password" required>
+				</div>
+				<div class="d-grid">
+					<button type="submit" class="btn btn-primary rounded">Login</button>
+				</div>
+			</form>
+		</div>
+		<!-- LOGGED IN USER INFO -->
+		<div id="activeUserContainer" class="row d-none">
+			<div class="mt-auto pt-3 border-top text-center">
+				<h6 class="text-secondary">Logged In User: <span id="loggedInUser" class="fw-bold">N/A</span></h6>
+				<p class="mb-0 text-muted">Token: <span id="userToken" class="font-monospace">N/A</span></p>
+				<div class="d-grid">
+					<a href="" type="button" class="btn btn-primary rounded">Logout</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	function startSession(loginData) {
+		document.getElementById('loggedInUser').textContent = loginData.user.username;
+		document.getElementById('userToken').textContent = loginData.token;
+		document.getElementById('loginContainer').classList.add('d-none');
+		document.getElementById('activeUserContainer').classList.remove('d-none');
+	}
+	function loginWithUser(username, password) {
+		document.getElementById('username').value = username;
+		document.getElementById('password').value = password;
+		// Trigger submit event properly so event listeners run
+		const form = document.getElementById('loginForm');
+		const event = new Event('submit', { bubbles: true, cancelable: true });
+		form.dispatchEvent(event);
+	}
+	function onLoginAttempted(event) {
+		event.preventDefault();
+		const username = document.getElementById('username').value;
+		const password = document.getElementById('password').value;
+		api.login(username, password)
+			.then(response => {
+				if (response.success) {
+					startSession(response.data);
+					// updateResponse('Login successful! Welcome back, ' + response.data.user.username + '!');
+				} else {
+					// updateResponse('Login failed. Please check your credentials.');
+				}
+				updateResponse(api.jsonToTableHTML(response, ['trace']));
+			})
+			.catch(error => {
+				updateResponse("Fallback error: " + error.message);
+			});
+	}
+	// Prevent default form submission for the login form
+	document.getElementById('loginForm').addEventListener('submit', (event) => onLoginAttempted(event));
+</script>

@@ -1,0 +1,22 @@
+- username: JORGE13
+  short: U1
+  color: FEE8E6
+  id: 1
+  type: admin
+  password: 1234
+- username: User One
+  short: U1
+  color: FEE8E6
+  id: 1
+  type: user
+  password: 1234
+- username: User One
+  short: U1
+  color: FEE8E6
+  id: 1
+  type: user
+- username: User One
+  short: U1
+  color: FEE8E6
+  id: 1
+  type: admin
