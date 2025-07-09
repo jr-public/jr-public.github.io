@@ -12,17 +12,13 @@ class ApiClient {
 			password: password
 		};
 		const json = await this.request("POST", actionUrl, payload);
-		if (!json.success) {
-			console.log(json.error)
-			throw new Error("Login failed");
-		}
-		this.jwt = json.data.token;
-		this.user = json.data.user;
+		return json;
+	}
+	logout() {
+		this.jwt = undefined;
+		this.user = undefined;
 		return true;
 	}
-
-
-
 
 	async request(method, url, payload = null) {
 		const options = {
@@ -50,7 +46,6 @@ class ApiClient {
 		} catch (err) {
 			throw new Error(`Critical Error: Failed to parse JSON response. ${err.message}`);
 		}
-
 		return json;
 	}
 
@@ -91,13 +86,13 @@ class ApiClient {
 		//
 		if (Object.prototype.hasOwnProperty.call(data, key)) {
 			html += '<tr>';
-			html += `<td style="background: #f0f0f0; font-weight: bold;">${this.escapeHTML(key)}</td>`;
+			html += `<td style="background: #f0f0f0; font-weight: bold;">${key}</td>`;
 			html += '<td>';
 			const value = data[key];
 			if (typeof value === 'object' && value !== null) {
-				html += jsonToTableHTML(value, skip, level + 1);
+				html += this.jsonToTableHTML(value, skip, level + 1);
 			} else {
-				html += this.escapeHTML(String(value));
+				html += String(value);
 			}
 			html += '</td></tr>';
 		}
