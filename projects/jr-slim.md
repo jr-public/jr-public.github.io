@@ -3,11 +3,11 @@ layout: project
 type: project
 image: img/jr-slim/jr-slim.png
 title: "jr-slim"
-date: "Under development"
+date: "Last updated July 2025"
 published: true
 giturl: "https://github.com/jr-public/jr-slim"
 tryurl: false
-position: 1
+position: 2
 labels:
   - PHP
   - REST API
