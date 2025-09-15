@@ -1,0 +1,17 @@
+{% if (hidden == true)  %}
+{% assign display = "d-none" %}
+{% else %}
+{% assign display = "" %}
+{% endif %}
+<!-- WIZARD: RESULT -->
+<div id="wizard-result" class="col-12 {{ display }}">
+	<button class="btn btn-sm btn-warning btn-outline-dark" onclick="window.wiz.resolveLogout()">LOGOUT</button>
+	<div class="card card-custom p-3 bg-white">
+		<h5 class="mb-3 text-center text-primary">Response Area</h5>
+		<div id="responseArea" class="bg-light p-3 border rounded text-muted" style="min-height: 150px;">
+			<p id="result-success" class="mb-0"></p>
+			<p id="result-data" class="mb-0"></p>
+			<p id="result-error" class="mb-0"></p>
+		</div>
+	</div>
+</div>

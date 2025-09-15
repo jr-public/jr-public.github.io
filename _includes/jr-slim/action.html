@@ -1,0 +1,16 @@
+{% if (hidden == true)  %}
+{% assign display = "d-none" %}
+{% else %}
+{% assign display = "" %}
+{% endif %}
+<!-- WIZARD: ACTION -->
+<div id="wizard-action" class="col-md-6 col-sm-12 mb-3 {{ display }}">
+	<button class="btn btn-sm btn-warning btn-outline-dark" onclick="window.wiz.resolveLogout()">LOGOUT</button>
+	<div class="card card-custom h-100 p-3 bg-white">
+		<h5 class="mb-3 text-center text-primary">User Actions</h5>
+		<div class="d-grid gap-3">
+			<button class="btn btn-outline-success rounded" onclick="window.wiz.resolveAction('index')">List users</button>
+			<button class="btn btn-outline-success rounded" onclick="window.wiz.resolveAction('get')">Get one user</button>
+		</div>
+	</div>
+</div>

@@ -1,10 +1,15 @@
-<div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+{% if (hidden == true)  %}
+{% assign display = "d-none" %}
+{% else %}
+{% assign display = "" %}
+{% endif %}
+<!-- WIZARD: LOGIN -->
+<div id="wizard-login" class="col-md-6 col-sm-12 mb-3 {{ display }}">
 	<div class="card card-custom h-100 p-3 bg-white">
-		<!-- LOGIN FORM -->
 		<div id="loginContainer" class="row">
 			<h5 class="mb-3 text-center text-primary">Login with these demo users</h5>
 			<div class="d-flex flex-wrap justify-content-around mb-4">
-				{% for user in site.data.api_users %}
+				{% for user in site.data.jr-slim.api_users %}
 				{% if user.password %}
 				{% include jr-slim/user-profile.html 
 					username=user.username 
@@ -28,52 +33,35 @@
 				<div class="d-grid">
 					<button type="submit" class="btn btn-primary rounded">Login</button>
 				</div>
+				<h5 id="loginError" class="mt-3 text-center text-danger"></h5>
 			</form>
-		</div>
-		<!-- LOGGED IN USER INFO -->
-		<div id="activeUserContainer" class="row d-none">
-			<div class="mt-auto pt-3 border-top text-center">
-				<h6 class="text-secondary">Logged In User: <span id="loggedInUser" class="fw-bold">N/A</span></h6>
-				<p class="mb-0 text-muted">Token: <span id="userToken" class="font-monospace">N/A</span></p>
-				<div class="d-grid">
-					<a href="" type="button" class="btn btn-primary rounded">Logout</a>
-				</div>
-			</div>
 		</div>
 	</div>
 </div>
 <script>
-	function startSession(loginData) {
-		document.getElementById('loggedInUser').textContent = loginData.user.username;
-		document.getElementById('userToken').textContent = loginData.token;
-		document.getElementById('loginContainer').classList.add('d-none');
-		document.getElementById('activeUserContainer').classList.remove('d-none');
-	}
 	function loginWithUser(username, password) {
+		const form = document.getElementById('loginForm');
+		const button = form.querySelector('button[type="submit"]');
+		if (button.disabled) {
+			return;
+		}
+		// Trigger submit event so event listeners run
 		document.getElementById('username').value = username;
 		document.getElementById('password').value = password;
-		// Trigger submit event properly so event listeners run
-		const form = document.getElementById('loginForm');
 		const event = new Event('submit', { bubbles: true, cancelable: true });
 		form.dispatchEvent(event);
 	}
 	function onLoginAttempted(event) {
+		event.target.querySelector('button[type="submit"]').disabled = true;
 		event.preventDefault();
 		const username = document.getElementById('username').value;
 		const password = document.getElementById('password').value;
-		api.login(username, password)
-			.then(response => {
-				if (response.success) {
-					startSession(response.data);
-					// updateResponse('Login successful! Welcome back, ' + response.data.user.username + '!');
-				} else {
-					// updateResponse('Login failed. Please check your credentials.');
-				}
-				updateResponse(api.jsonToTableHTML(response, ['trace']));
-			})
-			.catch(error => {
-				updateResponse("Fallback error: " + error.message);
-			});
+		try {
+			wiz.resolveLogin(username, password);
+		} catch (error) {
+			document.getElementById('loginError').innerHTML = error;
+		}
+		return;
 	}
 	// Prevent default form submission for the login form
 	document.getElementById('loginForm').addEventListener('submit', (event) => onLoginAttempted(event));

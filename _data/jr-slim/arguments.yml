@@ -1,0 +1,6 @@
+- action: "get"
+  slug: "/users/1"
+  description: "Fetch user with id 1 (admin)"
+- action: "get"
+  slug: "/users/2"
+  description: "Fetch user with id 2"

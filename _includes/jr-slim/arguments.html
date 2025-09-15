@@ -1,0 +1,23 @@
+{% if (hidden == true)  %}
+{% assign display = "d-none" %}
+{% else %}
+{% assign display = "" %}
+{% endif %}
+<!-- WIZARD: ARGUMENTS -->
+<div id="wizard-arguments" class="col-md-6 col-sm-12 mb-3 {{ display }}">
+	<button class="btn btn-sm btn-warning btn-outline-dark" onclick="window.wiz.resolveLogout()">LOGOUT</button>
+	<div class="card card-custom h-100 p-3 bg-white">
+		<h5 class="mb-3 text-center text-primary">Select arguments for your request</h5>
+		{% assign demo-requests = site.data.jr-slim.demo-requests %}
+		{% for demo in demo-requests %}
+			<button class="btn btn-sm btn-secondary m-1" onclick="window.wiz.resolveArguments('{{ demo.method }}', '{{ demo.slug }}')">
+				{{ demo.description }}
+			</button>
+		{% endfor %}
+		<!-- <h5 class="mb-3 text-center text-primary">or use your own</h5>
+		<textarea></textarea>
+		<div class="d-grid mt-auto">
+			<button class="btn btn-success btn-lg rounded" onclick="window.wiz.resolveArguments('GET', '/users/1')">Send request</button>
+		</div> -->
+	</div>
+</div>

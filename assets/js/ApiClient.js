@@ -2,9 +2,10 @@ class ApiClient {
 	jwt;
 	user;
 	url = "http://172.29.208.1:80"; // http://host.docker.internal:80 ?
-	
     constructor() {}
-
+	testy() {
+		return "TEST";
+	}
 	async login(username, password) {
 		let actionUrl = this.url + "/guest/login";
 		let payload = {
@@ -19,8 +20,19 @@ class ApiClient {
 		this.user = undefined;
 		return true;
 	}
-
-	async request(method, url, payload = null) {
+	async index(options) {
+		let actionUrl = this.url + "/users";
+		let payload = options;
+		// ESTO DEBERIA USAR OPTIONS PERO PARECE Q GET NO PUEDE TENER BODY
+		const json = await this.request("GET", actionUrl);
+		return json;
+	}
+	async get(id) {
+		let actionUrl = this.url + "/users/"+id;
+		const json = await this.request("GET", actionUrl);
+		return json;
+	}
+	async request(method, url, payload = null, token = null) {
 		const options = {
 			method,
 			headers: {
@@ -28,6 +40,10 @@ class ApiClient {
 			'Content-Type': 'application/json',
 			},
 		};
+		
+		if (token) {
+			options.headers['Authorization'] = `Bearer ${token}`;
+		}
 
 		if (payload) {
 			options.body = JSON.stringify(payload);
@@ -119,5 +135,4 @@ class ApiClient {
 	// createArticle(data: object): Promise<Article>
 
 }
-
 api = new ApiClient();

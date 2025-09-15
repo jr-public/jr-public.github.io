@@ -1,0 +1,16 @@
+- slug: "/users/1"
+  method: "GET"
+  description: "Gets user with id 1 (admin)"
+- slug: "/users/2"
+  method: "GET"
+  description: "Gets user with id 2"
+- slug: "/users"
+  method: "GET"
+  description: "Lists all users available for this user"
+- slug: "/users"
+  method: "POST"
+  description: "Creates a new user"
+  json: {
+    "username": "demo-user",
+    "password": "1234"
+  }
